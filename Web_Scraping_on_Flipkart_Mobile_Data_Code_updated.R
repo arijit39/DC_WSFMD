@@ -30,67 +30,13 @@ func <- function(url){
   return(data)
 }
 
-data1 <- lapply(flipkarturl[1], func)
-data2 <- lapply(flipkarturl[2], func)
-data3 <- lapply(flipkarturl[3], func)
-data4 <- lapply(flipkarturl[4], func)
-data5 <- lapply(flipkarturl[5], func)
-data6 <- lapply(flipkarturl[6], func)
-data7 <- lapply(flipkarturl[7], func)
-data8 <- lapply(flipkarturl[8], func)
-data9 <- lapply(flipkarturl[9], func)
-data10 <- lapply(flipkarturl[10], func)
-data11 <- lapply(flipkarturl[11], func)
-data12 <- lapply(flipkarturl[12], func)
-data13 <- lapply(flipkarturl[13], func)
-data14 <- lapply(flipkarturl[14], func)
-data15 <- lapply(flipkarturl[15], func)
-data16 <- lapply(flipkarturl[16], func)
-data17 <- lapply(flipkarturl[17], func)
-data18 <- lapply(flipkarturl[18], func)
-data19 <- lapply(flipkarturl[19], func)
-data20 <- lapply(flipkarturl[20], func)
-data21 <- lapply(flipkarturl[21], func)
-data22 <- lapply(flipkarturl[22], func)
-data23 <- lapply(flipkarturl[23], func)
-data24 <- lapply(flipkarturl[24], func)
-data25 <- lapply(flipkarturl[25], func)
-data26 <- lapply(flipkarturl[26], func)
-data27 <- lapply(flipkarturl[27], func)
-data28 <- lapply(flipkarturl[28], func)
-data29 <- lapply(flipkarturl[29], func)
-data30 <- lapply(flipkarturl[30], func)
-
-dataraw <- rbind(data1[[1]],
-                 data2[[1]],
-                 data3[[1]],
-                 data4[[1]],
-                 data5[[1]],
-                 data6[[1]],
-                 data7[[1]],
-                 data8[[1]],
-                 data9[[1]],
-                 data10[[1]],
-                 data11[[1]],
-                 data12[[1]],
-                 data13[[1]],
-                 data14[[1]],
-                 data15[[1]],
-                 data16[[1]],
-                 data17[[1]],
-                 data18[[1]],
-                 data19[[1]],
-                 data20[[1]],
-                 data21[[1]],
-                 data22[[1]],
-                 data23[[1]],
-                 data24[[1]],
-                 data25[[1]],
-                 data26[[1]],
-                 data27[[1]],
-                 data28[[1]],
-                 data29[[1]],
-                 data30[[1]])
+dataraw <- lapply(flipkarturl[1], func)
+dataraw <- rbind(dataraw[[1]])
+for (i in 2:30){
+  datarun <- lapply(flipkarturl[i], func)
+  datarun <- rbind(datarun[[1]])
+  dataraw <- rbind(dataraw,datarun)
+}
 
 c1 <- as.character(dataraw[,1])
 c2 <- as.character(dataraw[,2])
